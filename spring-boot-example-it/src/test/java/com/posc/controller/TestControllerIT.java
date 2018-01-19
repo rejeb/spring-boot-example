@@ -24,7 +24,7 @@ import static org.junit.Assert.assertEquals;
 public class TestControllerIT {
   @ClassRule
   public static WireMockClassRule wiremock = new WireMockClassRule(
-    WireMockSpring.options().fileSource(new ClasspathFileSource("stubs")).dynamicPort());
+    WireMockSpring.options().fileSource(new ClasspathFileSource("stubs")).port(9999));
 
   @Autowired
   private TestRestTemplate testRestTemplate;
@@ -35,6 +35,5 @@ public class TestControllerIT {
 
     assertEquals("Hello World", pong);
   }
-
 
 }
