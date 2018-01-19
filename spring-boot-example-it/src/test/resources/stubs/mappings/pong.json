@@ -1,0 +1,10 @@
+{
+  "request" : {
+    "urlPath" : "/ping",
+    "method" : "GET"
+  },
+  "response" : {
+    "status" : 200,
+    "body" : "Hello World"
+  }
+}
