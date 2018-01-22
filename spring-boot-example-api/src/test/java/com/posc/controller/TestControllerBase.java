@@ -3,14 +3,15 @@ package com.posc.controller;
 
 
 import com.posc.service.PingService;
+import io.restassured.module.mockmvc.RestAssuredMockMvc;
 import org.junit.*;
 import org.junit.runner.*;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.boot.test.autoconfigure.web.servlet.*;
 import org.springframework.boot.test.mock.mockito.*;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.BDDMockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
@@ -19,20 +20,22 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @RunWith(SpringRunner.class)
 @WebMvcTest(TestController.class)
-public class TestControllerTest {
+public class TestControllerBase {
+
 
   @Autowired
-  private MockMvc mvc;
+  private TestController testController;
+
   @MockBean
   private PingService pingService;
 
-  @Test
-  public void ping() throws Exception {
-    String expected = "pong test.";
-    given(pingService.ping()).willReturn(expected);
+  @Before
+  public void setup() {
+    RestAssuredMockMvc.standaloneSetup(testController);
 
-    this.mvc.perform(get("/ping").accept(MediaType.TEXT_PLAIN))
-            .andExpect(status().isOk())
-            .andExpect(content().string("pong test."));
+    Mockito.when(pingService.ping())
+           .thenReturn("Hello pong.");
+
   }
+
 }
