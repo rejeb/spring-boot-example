@@ -11,7 +11,6 @@
         <module>spring-boot-example-api</module>
         <module>spring-boot-example-it</module>
         <module>spring-boot-example-service</module>
-        <module>spring-boot-example-stubs</module>
         <module>spring-boot-example-consumer</module>
     </modules>
     <packaging>pom</packaging>

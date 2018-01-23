@@ -19,13 +19,17 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-logging</artifactId>
+        </dependency>
+        <dependency>
             <groupId>com.posc</groupId>
             <artifactId>spring-boot-example-service</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
+       </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-contract-verifier</artifactId>
@@ -44,17 +48,28 @@
                 </configuration>
             </plugin>
             <plugin>
-            <artifactId>maven-jar-plugin</artifactId>
-            <version>3.0.0</version>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.0.0</version>
 
             </plugin>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>1.5.8.RELEASE</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+
                 <configuration>
+                    <classifier>exec</classifier>
                     <mainClass>${mainClass}</mainClass>
                 </configuration>
+
             </plugin>
             <plugin>
                 <groupId>org.springframework.cloud</groupId>

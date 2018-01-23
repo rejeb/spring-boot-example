@@ -1,0 +1,12 @@
+{
+  "services": [
+    {
+      "name": "SPRING_BOOT_EXAMPLE",
+      "cp": "spring-boot-example-api-1.0-SNAPSHOT-exec.jar",
+      "conf": "application.properties",
+      "app_dir":"spring-boot-example",
+      "debug": "10018",
+      "nb_instances": 1
+    }
+  ]
+}
