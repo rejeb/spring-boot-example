@@ -1,12 +1,18 @@
 FROM ci.docapost.io/java:latest
 
-RUN chown -R newtprod.prod /USR/newtprod/
-
-RUN chown -R newtprod.prod /VAR/newtprod/
-
 VOLUME /USR/newtprod
 
+VOLUME /USR/newtprod/spring-boot-example/conf
 
-USER newtprod
+VOLUME /USR/newtprod/spring-boot-example/jars
 
-CMD ["/USR/newtprod/spring_boot.py"]
+COPY ./application-dev.properties /USR/newtprod/spring-boot-example/conf/application.properties
+
+COPY ./logback-dev.xml /USR/newtprod/spring-boot-example/conf/logback.xml
+
+COPY ./spring-boot-example-api-1.0-SNAPSHOT-exec.jar /USR/newtprod/spring-boot-example/jars/spring-boot-example-api-1.0-SNAPSHOT-exec.jar
+
+
+CMD ["java", "-cp", "/USR/newtprod/spring-boot-example/jars/*:/USR/newtprod/spring-boot-example/conf", "org.springframework.boot.loader.JarLauncher"]
+
+EXPOSE 10104:10104

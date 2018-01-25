@@ -3,14 +3,12 @@ version: '2'
 
 services:
 
-  spring_boot_example:
-    image: spring_boot_example:latest
-
-    volumes:
-      - /home/rbenrejeb/workspace/other-source/spring-boot-example/docker/spring-boot/spring_boot.py:/USR/newtprod/spring_boot.py
-      - /home/rbenrejeb/workspace/other-source/spring-boot-example/docker/spring-boot/spring_boot_conf.json:/USR/newtprod/spring_boot_conf.json
-      - /home/rbenrejeb/workspace/other-source/spring-boot-example/spring-boot-example-api/src/main/resources/application-dev.properties:/USR/newtprod/spring-boot-example/conf/application.properties
-      - /home/rbenrejeb/workspace/other-source/spring-boot-example/spring-boot-example-api/src/main/resources/logback-dev.xml:/USR/newtprod/spring-boot-example/conf/logback.xml
-      - /home/rbenrejeb/workspace/other-source/spring-boot-example/spring-boot-example-api/target/spring-boot-example-api-1.0-SNAPSHOT-exec.jar:/USR/newtprod/spring-boot-example/jars/spring-boot-example-api-1.0-SNAPSHOT-exec.jar
+  spring-boot-example:
+    image: ci.docapost.io/spring-boot-example:latest
+    entrypoint:
+      - java
+      - -cp
+      - /USR/newtprod/spring-boot-example/jars/*:/USR/newtprod/spring-boot-example/conf
+      - org.springframework.boot.loader.JarLauncher
     ports:
       - "10104:10104"

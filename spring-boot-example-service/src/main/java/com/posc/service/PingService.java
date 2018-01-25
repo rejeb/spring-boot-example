@@ -12,6 +12,6 @@ public class PingService {
   }
 
   public String ping() {
-    return restTemplate.getForObject(pingUrl, String.class);
+    return "Hello pong.";
   }
 }
