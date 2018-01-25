@@ -103,7 +103,7 @@
                         <resource>
                             <targetPath>/</targetPath>
                             <directory>${project.build.directory}</directory>
-                            <include>${project.build.finalName}-${project.version}-exec.jar</include>
+                            <include>${project.artifactId}-${project.version}-exec.jar</include>
                         </resource>
                     </resources>
                 </configuration>
