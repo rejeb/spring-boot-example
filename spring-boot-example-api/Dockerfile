@@ -1,10 +1,5 @@
-FROM ci.docapost.io/java:latest
+FROM lwieske/java-8:jdk-8u152
 
-RUN chown -R newtprod.prod /USR/newtprod/
-
-RUN chown -R newtprod.prod /VAR/newtprod/
-
-USER newtprod
 
 VOLUME /USR/newtprod
 
@@ -20,6 +15,6 @@ COPY target/spring-boot-example-api-1.0-SNAPSHOT-exec.jar /USR/newtprod/spring-b
 
 EXPOSE 10104
 
-ENTRYPOINT ["java", "-cp", "/USR/newtprod/spring-boot-example/jars/*:/USR/newtprod/spring-boot-example/conf", "org.springframework.boot.loader.JarLauncher"]
+ENTRYPOINT ["java","-Xmx256m", "-cp", "/USR/newtprod/spring-boot-example/jars/*:/USR/newtprod/spring-boot-example/conf", "org.springframework.boot.loader.JarLauncher"]
 
 

@@ -26,6 +26,12 @@
             <groupId>com.posc</groupId>
             <artifactId>spring-boot-example-service</artifactId>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.datatype/jackson-datatype-jsr310 -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.datatype</groupId>
+            <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -82,7 +88,7 @@
             <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
-                <version>1.3.7</version>
+                <version>1.3.6</version>
                 <executions>
                     <execution>
                         <id>default</id>
@@ -94,9 +100,8 @@
                 </executions>
 
                 <configuration>
-                    <imageName>ci.docapost.io/spring-boot-example</imageName>
-                    <repository>ci.docapost.io/spring-boot-example</repository>
-                    <entryPoint>["java", "-cp", "/USR/newtprod/spring-boot-example/jars/*:/USR/newtprod/spring-boot-example/conf", "org.springframework.boot.loader.JarLauncher"]</entryPoint>
+                    <imageName>spring-boot-example</imageName>
+                    <repository>spring-boot-example</repository>
 
                     <!-- copy the service's jar file from target into the root directory of the image -->
                     <resources>
