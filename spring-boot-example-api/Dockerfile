@@ -11,7 +11,7 @@ COPY src/main/resources/application-dev.properties /USR/newtprod/spring-boot-exa
 
 COPY src/main/resources/logback-dev.xml /USR/newtprod/spring-boot-example/conf/logback.xml
 
-COPY target/spring-boot-example-api-1.0-SNAPSHOT-exec.jar /USR/newtprod/spring-boot-example/jars/spring-boot-example-api-1.0-SNAPSHOT-exec.jar
+COPY target/spring-boot-example-api-1.0-SNAPSHOT-fat-exec.jar /USR/newtprod/spring-boot-example/jars/spring-boot-example-api-1.0-SNAPSHOT-fat-exec.jar
 
 EXPOSE 10104
 

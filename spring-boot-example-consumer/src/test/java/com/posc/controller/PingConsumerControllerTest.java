@@ -28,7 +28,7 @@ public class PingConsumerControllerTest {
   public void testPing() {
     String pong = testRestTemplate.getForObject("/ping", String.class);
 
-    assertEquals("Hello pong.", pong);
+    assertEquals("pong", pong);
   }
 
 }
