@@ -1,4 +1,4 @@
-package com.posc.repository;
+package com.posc.repository.cassandra;
 
 import com.posc.repository.model.Person;
 import com.posc.repository.model.PersonKey;

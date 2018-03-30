@@ -1,7 +1,7 @@
 package com.posc.service.impl;
 
 import com.posc.model.Person;
-import com.posc.repository.PersonRepository;
+import com.posc.repository.cassandra.PersonRepository;
 import com.posc.service.PersonService;
 import com.posc.service.mapper.PersonRepositoryToPersonMapper;
 import com.posc.service.mapper.PersonToRepositoryPersonMapper;
