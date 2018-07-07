@@ -1,9 +1,8 @@
 package com.posc.controller;
 
-import com.posc.repository.redis.DailyAggregateDataRepository;
 import com.posc.repository.model.DailyAggregateData;
+import com.posc.repository.redis.DailyAggregateDataRepository;
 import org.springframework.http.ResponseEntity;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
@@ -16,24 +15,11 @@ public class DailyAggregateDataController {
   }
 
   @PostMapping()
-  @Transactional
   public ResponseEntity<DailyAggregateData> postDailyAggregateData(
     @RequestBody
       DailyAggregateData dailyAggregateData) {
-    DailyAggregateData saved= dataRepository.findOne(dailyAggregateData.getId());
 
-     saved= dataRepository.save(dailyAggregateData);
-    return ResponseEntity.ok(saved);
-  }
-
-  @PostMapping("/wait")
-  @Transactional
-  public ResponseEntity<DailyAggregateData> postDailyAggregateDataWait(
-    @RequestBody
-      DailyAggregateData dailyAggregateData) throws InterruptedException {
-    DailyAggregateData saved= dataRepository.findOne(dailyAggregateData.getId());
-    Thread.sleep(10000);
-     saved= dataRepository.save(dailyAggregateData);
+    DailyAggregateData saved= dataRepository.save(dailyAggregateData);
     return ResponseEntity.ok(saved);
   }
 

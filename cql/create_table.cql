@@ -7,10 +7,10 @@ WITH durable_writes = true
 };
 
 CREATE TABLE person_ks.person (
-first_name ascii,
-date_of_birth timestamp,
-person_id uuid,
+firstName ascii,
+dateOfBirth timestamp,
+personId uuid,
 gender ascii,
-last_name ascii,
+lastName ascii,
 PRIMARY KEY (first_name, date_of_birth, person_id)
 ) WITH CLUSTERING ORDER BY ( date_of_birth ASC, person_id ASC );
